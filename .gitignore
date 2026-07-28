@@ -6,10 +6,14 @@ __pycache__/
 # Django
 *.log
 staticfiles/
+media/
 
 # Virtual Environment
 venv/
 backend/venv/
+
+# IDE
+.vscode/
 
 # macOS
 .DS_Store
