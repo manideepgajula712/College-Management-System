@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'placement',
     'notifications',
     'analytics',
+    
+      "django_rest_passwordreset",
 ]
 
 MIDDLEWARE = [

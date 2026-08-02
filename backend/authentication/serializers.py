@@ -42,3 +42,23 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
             data["role"] = None
 
         return data
+    
+class UserManagementSerializer(serializers.ModelSerializer):
+
+    role = serializers.CharField(
+        source="role.name",
+        read_only=True
+    )
+
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "username",
+            "email",
+            "phone",
+            "role",
+            "is_active",
+            "is_verified",
+            "created_at",
+        ]
