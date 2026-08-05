@@ -19,4 +19,10 @@ urlpatterns = [
             namespace='password_reset'
         )
     ),
+
+    # Student APIs
+    path(
+        'api/',
+        include('students.urls')
+    ),
 ]
