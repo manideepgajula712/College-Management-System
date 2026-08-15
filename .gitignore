@@ -20,3 +20,33 @@ backend/venv/
 
 # Environment variables
 .env
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Django
+*.sqlite3
+db.sqlite3
+.env
+
+# Django static/media
+staticfiles/
+media/
+
+# Node
+node_modules/
+frontend/dist/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

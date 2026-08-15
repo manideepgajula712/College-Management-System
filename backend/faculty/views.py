@@ -1,3 +1,16 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
-# Create your views here.
+from .models import Faculty
+from .serializers import FacultySerializer
+
+
+class FacultyViewSet(viewsets.ModelViewSet):
+
+    queryset = Faculty.objects.all()
+
+    serializer_class = FacultySerializer
+
+    permission_classes = [
+        IsAuthenticated
+    ]

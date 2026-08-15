@@ -25,4 +25,31 @@ urlpatterns = [
         'api/',
         include('students.urls')
     ),
+
+    # Academic APIs
+    path(
+        'api/academics/',
+        include('academics.urls')
+    ),
+
+    # Faculty APIs
+    path(
+        'api/',
+        include('faculty.urls')
+    ),
+        # Attendance APIs
+    path(
+        'api/',
+        include('attendance.urls')
+    ),
+        # Timetable APIs
+    path(
+        'api/',
+        include('timetable.urls')
+    ),
+    # Examination APIs
+    path(
+        'api/',
+        include('examinations.urls')
+    ),
 ]
