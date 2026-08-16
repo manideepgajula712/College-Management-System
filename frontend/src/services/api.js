@@ -29,11 +29,14 @@ export async function login(username, password) {
 export async function getProfile() {
   const token = localStorage.getItem("access_token");
 
-  const response = await fetch(`${API_BASE_URL}/auth/profile/`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const response = await fetch(
+    `${API_BASE_URL}/auth/profile/`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   if (!response.ok) {
     throw new Error("Unable to load profile");
@@ -45,24 +48,54 @@ export async function getProfile() {
 export async function apiFetch(endpoint, options = {}) {
   const token = localStorage.getItem("access_token");
 
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-      ...(options.headers || {}),
-    },
-  });
+  const response = await fetch(
+    `${API_BASE_URL}${endpoint}`,
+    {
+      ...options,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+        ...(options.headers || {}),
+      },
+    }
+  );
 
   if (!response.ok) {
-    const data = await response.json().catch(() => ({}));
+    const data = await response
+      .json()
+      .catch(() => ({}));
 
     throw new Error(
-      data.detail || `API request failed: ${response.status}`
+      data.detail ||
+        `API request failed: ${response.status}`
     );
   }
 
   return response.json();
+}
+
+export async function getStudents() {
+  return apiFetch("/students/");
+}
+
+export async function getAttendance() {
+  return apiFetch("/attendance/");
+}
+
+export async function getFaculty() {
+  return apiFetch("/faculty/");
+}
+
+export async function getTimetable() {
+  return apiFetch("/timetable/");
+}
+
+export async function getExaminations() {
+  return apiFetch("/examinations/");
+}
+
+export async function getResults() {
+  return apiFetch("/results/");
 }
 
 export function logout() {
